@@ -46,9 +46,9 @@ export default function PresenceRoom({ initialPresence }: PresenceRoomProps) {
   const presentCount = presence.filter((p) => p.status === 'in').length;
 
   return (
-    <div style={{ display: 'flex', gap: 24, alignItems: 'flex-start' }}>
+    <div className="room-layout">
       {/* Room visual */}
-      <div style={{ flex: '0 0 60%' }}>
+      <div className="room-visual">
         <RoomViewer>
           <PresenceOverlay presence={presence} />
         </RoomViewer>
@@ -60,7 +60,7 @@ export default function PresenceRoom({ initialPresence }: PresenceRoomProps) {
       </div>
 
       {/* Side panel */}
-      <div style={{ flex: 1 }}>
+      <div className="room-panel">
         <CheckInOutPanel presence={presence} />
       </div>
     </div>

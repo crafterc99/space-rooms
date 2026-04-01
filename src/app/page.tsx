@@ -62,14 +62,7 @@ export default async function DashboardPage() {
       </div>
 
       {/* Stat cards row */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 16,
-          marginBottom: 32,
-        }}
-      >
+      <div className="grid-3" style={{ marginBottom: 32 }}>
         {/* Occupancy card */}
         <Link
           href="/presence"
@@ -331,13 +324,7 @@ export default async function DashboardPage() {
       )}
 
       {/* Quick-nav cards */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 14,
-        }}
-      >
+      <div className="grid-3" style={{ gap: 14 }}>
         {[
           { href: '/equipment', label: 'Equipment Room', sub: 'Check out & return shared equipment', color: '#6366f1' },
           { href: '/presence',  label: 'Presence Room',  sub: 'See who is in the space right now',   color: '#22c55e' },

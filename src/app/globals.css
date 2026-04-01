@@ -30,3 +30,55 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+/* Responsive grid utilities used by the dashboard */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* Tablet — iPad portrait (≤ 768px) */
+@media (max-width: 768px) {
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* Small tablet / large phone (769–1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Room layout: side-by-side on desktop, stacked on tablet */
+.room-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.room-layout .room-visual { flex: 0 0 60%; }
+.room-layout .room-panel  { flex: 1; }
+
+@media (max-width: 900px) {
+  .room-layout { flex-direction: column; }
+  .room-layout .room-visual { flex: none; width: 100%; }
+  .room-layout .room-panel  { flex: none; width: 100%; }
+}
+
+/* NavBar responsive */
+@media (max-width: 600px) {
+  .nav-links span { display: none; }
+}
+
+/* Make datetime-local inputs readable on Safari/iOS */
+input[type="datetime-local"],
+input[type="date"],
+input[type="time"] {
+  color-scheme: dark;
+}

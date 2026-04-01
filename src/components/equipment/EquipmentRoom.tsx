@@ -45,9 +45,9 @@ export default function EquipmentRoom({ initialEquipment }: EquipmentRoomProps) 
   }, []);
 
   return (
-    <div style={{ display: 'flex', gap: 24, alignItems: 'flex-start' }}>
+    <div className="room-layout">
       {/* Room visual */}
-      <div style={{ flex: '0 0 60%' }}>
+      <div className="room-visual">
         <RoomViewer>
           <EquipmentOverlay equipment={equipment} />
         </RoomViewer>
@@ -67,7 +67,7 @@ export default function EquipmentRoom({ initialEquipment }: EquipmentRoomProps) 
       </div>
 
       {/* Side panel */}
-      <div style={{ flex: 1 }}>
+      <div className="room-panel">
         <h2 style={{ fontSize: 16, fontWeight: 700, marginBottom: 12, color: '#e8e8f0' }}>
           Equipment
         </h2>
