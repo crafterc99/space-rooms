@@ -11,6 +11,7 @@ export interface Equipment {
   status: 'available' | 'in_use' | 'maintenance';
   checked_out_by: string | null;
   checked_out_at: string | null;
+  due_back_at: string | null;
   created_at: string;
   profiles?: Profile | null;
 }
@@ -29,5 +30,17 @@ export interface Presence {
   status: 'in' | 'out';
   checked_in_at: string | null;
   updated_at: string;
+  profiles?: Profile | null;
+}
+
+export interface Booking {
+  id: string;
+  room_name: string;
+  title: string;
+  booked_by: string | null;
+  start_time: string;
+  end_time: string;
+  notes: string | null;
+  created_at: string;
   profiles?: Profile | null;
 }

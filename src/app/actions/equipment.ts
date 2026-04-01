@@ -3,7 +3,11 @@
 import { revalidatePath } from 'next/cache';
 import { getSupabaseServerClient } from '@/lib/supabase/server';
 
-export async function checkOutEquipment(equipmentId: string, userId: string) {
+export async function checkOutEquipment(
+  equipmentId: string,
+  userId: string,
+  dueBackAt?: string,
+) {
   const supabase = await getSupabaseServerClient();
 
   await supabase
@@ -12,6 +16,7 @@ export async function checkOutEquipment(equipmentId: string, userId: string) {
       status: 'in_use',
       checked_out_by: userId,
       checked_out_at: new Date().toISOString(),
+      due_back_at: dueBackAt ?? null,
     })
     .eq('id', equipmentId);
 
@@ -33,6 +38,7 @@ export async function returnEquipment(equipmentId: string, userId: string) {
       status: 'available',
       checked_out_by: null,
       checked_out_at: null,
+      due_back_at: null,
     })
     .eq('id', equipmentId);
 
